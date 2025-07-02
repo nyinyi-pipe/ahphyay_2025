@@ -46,6 +46,8 @@ Last Update: 27.09.2018
 /*== Theme Typography Style Start ==*/
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
+      
 }
 
 body {
@@ -113,6 +115,14 @@ button:focus, button:active, button.btn:focus, button.btn:active {
     padding: 0 4%;
 }
 
+.ruby-container-testi{
+    padding: 0%;
+}
+
+.ruby-container-about {
+    padding: 0 8%;
+}
+
 .p-9 {
     padding: 90px 0;
 }
@@ -166,7 +176,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
     margin-bottom: 94px;
 }
 
-.section-title:after {
+/* .section-title:after {
     background-image: url(../img/title-line.png);
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -176,7 +186,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
     height: 27px;
     left: 0;
     top: calc(100% + 24px);
-}
+} */
 
 .section-title h2 {
     font-size: 3.6rem;
@@ -384,7 +394,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
 }
 
 .scrolltotop {
-    background-color: #929292;
+    background-color: #5e2207;
     color: #fff;
     font-size: 2.2rem;
     -webkit-transition: all 0.4s ease-out;
@@ -707,7 +717,7 @@ address strong, address b {
 }
 
 #header-area.fixed {
-    background-color: #202020;
+    background-color: #230d03;
     -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
@@ -1705,7 +1715,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 }
 
 #banner-area #banner-carousel .single-carousel-wrap .banner-caption {
-    padding: 0 15px;
+    padding: 0 35px;
     max-width: 1140px;
     margin: auto;
 }
@@ -1754,12 +1764,13 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
     }
 }
 
+
 #banner-area #banner-carousel .single-carousel-wrap.slide-item-1 {
     background-image: url("../img/cover1.jpg");
 }
 
 #banner-area #banner-carousel .single-carousel-wrap.slide-item-2 {
-    background-image: url("../img/slide-img-2.jpg");
+    background-image: url("../img/cover2.jpg");
 }
 
 #banner-area #banner-carousel .single-carousel-wrap.slide-item-3 {
@@ -1852,6 +1863,11 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 
 /*== Banner // Slider Area End ==*/
 /*== About Us Area Start ==*/
+
+.about-content{
+    color: black;
+    font-weight: bold;
+}
 .about-image-wrap {
     overflow: hidden;
     background-color: #fafafa;
@@ -1883,15 +1899,21 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 .about-content-wrap h2 {
     font-size: 1.4rem;
     line-height: 1.5;
-    color: #d82e2e;
+    color: #5e2207;
     margin-bottom: 0;
     margin-top: -5px;
 }
 
 .about-content-wrap h3 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     line-height: 1.5;
     margin-bottom: 17px;
+}
+
+.h3-banner{
+    text-transform: uppercase;
+    font-family: "Droid Serif";
+    font-size: 3.0rem;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 575px) {
@@ -1903,11 +1925,21 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 
 .about-content-wrap .about-text {
     font-style: italic;
-    padding-left: 65px;
+    padding-left: 10px;
     font-size: 1.5rem;
-    line-height: 1.5;
-    line-height: 3rem;
+    line-height: 2.5rem;
+    font-weight: 600;
     position: relative;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    .about-content-wrap .about-text {
+        line-height: 2.1rem;
+    }
+    .about-content-wrap h3 {
+        
+        margin-bottom: 5px;
+    }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 575px), only screen and (min-width: 576px) and (max-width: 767px), only screen and (min-width: 768px) and (max-width: 991px) {

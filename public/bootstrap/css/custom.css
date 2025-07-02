@@ -10,10 +10,10 @@
 }
 
 .faq-container {
-    max-width: 1200px;
+    
     margin: 40px 100px;
     box-shadow: var(--shadow);
-    border-radius: 20px;
+    ;
     overflow: hidden;
     background: white;
     animation: fadeIn 0.8s ease;

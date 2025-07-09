@@ -11,12 +11,26 @@
 
 .faq-container {
     
-    margin: 40px 100px;
+    margin: 40px 95px; 
+
     box-shadow: var(--shadow);
     ;
     overflow: hidden;
     background: white;
     animation: fadeIn 0.8s ease;
+}
+
+@media (max-width: 768px) {
+    .faq-container {
+        margin: 20px 16px; 
+    }
+}
+
+
+@media (max-width: 1056px) {
+    .faq-container {
+        margin: 20px 30px; 
+    }
 }
 
 .faq-header {
@@ -366,7 +380,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 20px;
-    background: linear-gradient(45deg, #3498db, #2ecc71);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

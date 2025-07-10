@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <div id="banner-carousel" class="owl-carousel">
                         <!-- Banner Single Carousel Start -->
-                        <div class="single-carousel-wrap slide-item-1" style="background-image: url({{ $banner_1->value }});">
+                        <div class="single-carousel-wrap slide-item-1" style="background-image: url({{ $banner_1->value ?? '' }});">
                             <div class="banner-caption text-center text-lg-left">
                                 <h4 style="color: #5e2207;">Ngyan Store</h4>
                                 <h3 class="h3-banner">Lorem ipsum dolor </h3>

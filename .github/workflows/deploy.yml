@@ -69,10 +69,11 @@ jobs:
           port: 22
           script: |
             cd /var/www/laravel || exit 1
+            sudo chown -R www-data:www-data storage
+            sudo chmod -R 775 storage
             php artisan migrate --force
             php artisan optimize:clear
             php artisan optimize
             php artisan view:cache
             php artisan event:cache
             php artisan storage:link
-            php artisan key:generate

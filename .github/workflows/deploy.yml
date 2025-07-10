@@ -48,6 +48,17 @@ jobs:
           TARGET: "/var/www/laravel/"
           ARGS: "-avz --delete --exclude='node_modules/' --exclude='.git/'"
           SSH_ARGS: "-o StrictHostKeyChecking=no"
+      
+      - name: Create .env file on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+              cd /var/www/laravel
+              echo "${{ secrets.PROD_ENV }}" > .env
+              php artisan key:generate
 
       - name: Run Remote Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
@@ -64,3 +75,4 @@ jobs:
             php artisan view:cache
             php artisan event:cache
             php artisan storage:link
+            php artisan key:generate

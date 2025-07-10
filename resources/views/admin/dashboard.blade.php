@@ -67,7 +67,7 @@
         <canvas id="categoryChart" class="w-full max-w-xl mx-auto"></canvas>
     </div>
 
-    <!-- Recent Products -->
+    {{-- <!-- Recent Products -->
     <div class="background-white rounded-xl shadow p-4 overflow-auto">
         <div class="flex justify-between items-center mb-4">
             <h3 class="text-lg font-semibold">Recent Products</h3>
@@ -106,5 +106,5 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> --}}
 @endsection

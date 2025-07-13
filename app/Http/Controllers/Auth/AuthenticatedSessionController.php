@@ -6,6 +6,7 @@ use App\Helpers\RoleRedirector;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
+use App\Repositories\WebSettingRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,12 +14,20 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+    protected $webSettingRepo;
+
+    public function __construct(WebSettingRepository $webSettingRepo)
+    {
+        $this->webSettingRepo = $webSettingRepo;
+    }
     /**
      * Display the login view.
      */
     public function create(): View
     {
-        return view('auth.login');
+        $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
+        $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
+        return view('auth.login',compact('logo','company_name'));
     }
 
     /**

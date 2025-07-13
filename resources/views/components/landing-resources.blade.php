@@ -13,7 +13,9 @@
                 <div class="col-lg-12">
                     <div id="banner-carousel" class="owl-carousel">
                         <!-- Banner Single Carousel Start -->
-                        <div class="single-carousel-wrap slide-item-1" style="background-image: url({{ $banner_1->value ?? '' }});">
+
+                        <div class="single-carousel-wrap slide-item-1" style="background-image: url({{ $banner_1 ?? '' }});">
+
                             <div class="banner-caption text-center text-lg-left">
                                 <h4 style="color: #5e2207;">Ngyan Store</h4>
                                 <h3 class="h3-banner">Lorem ipsum dolor </h3>
@@ -24,7 +26,7 @@
                         <!-- Banner Single Carousel End -->
 
                         <!-- Banner Single Carousel Start -->
-                        <div class="single-carousel-wrap slide-item-2" style="background-image: url({{ $banner_2->value ?? '' }});">
+                        <div class="single-carousel-wrap slide-item-2" style="background-image: url({{ $banner_2 ?? '' }});">
                             <div class="banner-caption text-center text-lg-left">
                                 <h4 style="color:#5e2207;">Ngyan Store</h4>
                                 <h3 class="h3-banner">Lorem ipsum dolor</h3>
@@ -158,7 +160,7 @@
                 <div class="col-lg-6">
                     <!-- About Image Area Start -->
                     <div class="about-image-wrap">
-                        <a href="/about"><img src="{{ $about_img->value ?? '' }}"
+                        <a href="/about"><img src="{{ $about_img ?? '' }}"
                                 alt="about-img" width="480" height="750" class="img-fluid" /></a>
                     </div>
                     <!-- About Image Area End -->

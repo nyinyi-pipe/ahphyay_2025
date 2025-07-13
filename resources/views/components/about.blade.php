@@ -11,7 +11,7 @@
                 <div class="col-lg-6">
                     <!-- About Image Area Start -->
                     <div class="about-image-wrap">
-                        <a href="/about"><img src="{{ $about_img->value ?? '' }}"
+                        <a href="/about"><img src="{{ $about_img ?? '' }}"
                                 alt="About Us" width="500" height="800" class="img-fluid" /></a>
                     </div>
                     <!-- About Image Area End -->

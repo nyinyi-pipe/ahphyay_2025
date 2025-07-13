@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Models\SiteSettings;
 use App\Models\User;
+use App\Repositories\WebSettingRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Permission;
@@ -13,6 +14,13 @@ use Spatie\Permission\Models\Role;
 
 class WebSettingController extends Controller
 {
+    protected $webSettingRepo;
+
+    public function __construct(WebSettingRepository $webSettingRepo)
+    {
+        $this->webSettingRepo = $webSettingRepo;
+    }
+
     public function settings(){
         $users = User::get();
         $roles = Role::orderBy('id')->get();
@@ -23,11 +31,12 @@ class WebSettingController extends Controller
     }
 
     public function landing(){
-        $logo = SiteSettings::where('key', 'logo')->first();
-        $company_name = SiteSettings::where('key', 'company_name')->first()->value ?? '';
-        $banner_1 = SiteSettings::where('key', 'banner_1')->first();
-        $banner_2 = SiteSettings::where('key', 'banner_2')->first();
-        $about_img = SiteSettings::where('key', 'about_image')->first();
+        $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
+        $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
+        $banner_1 = $this->webSettingRepo->getLandingAttributes()['banner_1'];
+        $banner_2 = $this->webSettingRepo->getLandingAttributes()['banner_2'];
+        $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
+
 
         return view('components.landing-resources',compact('logo','company_name','banner_1','banner_2','about_img'));
     }
@@ -60,6 +69,22 @@ class WebSettingController extends Controller
             ['value' => $value, 'type' => $type]
         );
     }
+
+    public function about(){
+        $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
+        $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
+        $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
+
+        return view('components.about',compact('logo','company_name','about_img'));
+    }
+
+    public function contact(){
+        $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
+        $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
+
+        return view('components.contact',compact('logo','company_name'));
+    }
+
 
     // FAQ Section
     public function index()

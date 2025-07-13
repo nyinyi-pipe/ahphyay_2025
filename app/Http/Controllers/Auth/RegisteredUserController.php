@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Repositories\WebSettingRepository;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,12 +16,20 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+    protected $webSettingRepo;
+
+    public function __construct(WebSettingRepository $webSettingRepo)
+    {
+        $this->webSettingRepo = $webSettingRepo;
+    }
     /**
      * Display the registration view.
      */
     public function create(): View
     {
-        return view('auth.register');
+        $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
+        $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
+        return view('auth.register',compact('logo','company_name'));
     }
 
     /**

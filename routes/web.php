@@ -26,15 +26,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [WebSettingController::class, 'landing'])->name('landing');
+Route::get('/about',[WebSettingController::class, 'about']);
+Route::get('/contact',[WebSettingController::class, 'contact']);
 
-Route::get('/about', function () {
-    $about_img = SiteSettings::where('key', 'about_image')->first();
-    return view('components.about',compact('about_img'));
-});
-
-Route::get('/contact', function () {
-    return view('components.contact ');
-});
 
 Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => ['role:superadmin']], function () {

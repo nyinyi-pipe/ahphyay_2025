@@ -36,7 +36,7 @@
             </div>
 
             <div class="col-lg-4 footer-section">
-                <img src="{{ $logo->value ?? '' }}" class="" width="250" alt="footer-logo">
+                <img src="{{ $logo ?? '' }}" class="" width="250" alt="footer-logo">
             </div>
         </div>
 

@@ -524,3 +524,12 @@
         margin-bottom: 40px;
     }
 }
+
+/* Register and Login Page CSS */
+.login-nav{
+    border-bottom: 2px solid #230d03;
+}
+
+.register-nav{
+    border-bottom: 2px solid #230d03;
+}

@@ -75,7 +75,7 @@
     <!-- Modernizer JS -->
     <script src="bootstrap/js/vendor/modernizr-2.8.3.min.js"></script>
 
-
+    @vite(['resources/js/app.js'])
 
 
     <!--[if lt IE 9]>

@@ -5,7 +5,8 @@
             <!-- Logo Area Start -->
             <div class="col-3 col-lg-1 col-xl-2 m-auto">
                 <a href="/" class="logo-area">
-                    <img src="{{ $logo->value ?? '' }}" style="filter: brightness(250%);" width="60" class="" alt="Logo" class="img-fluid" />
+                    <img src="{{ $logo->value ?? '' }}" style="filter: brightness(250%);" width="60" class=""
+                        alt="Logo" class="img-fluid" />
                 </a>
             </div>
             <!-- Logo Area End -->
@@ -16,7 +17,7 @@
                     <nav id="mainmenu">
                         <ul>
                             <li class=""><a href="/home">Home</a>
-                                
+
                             </li>
                             <li class="dropdown-show"><a href="#">Shop</a>
                                 <ul class="mega-menu-wrap dropdown-nav">
@@ -64,7 +65,7 @@
             <div class="col-6 col-lg-2 m-auto">
                 <div class="header-right-meta text-right">
                     <ul>
-                        
+
                         {{-- <li class="settings"><a href="#"><i class="fa fa-cog"></i></a>
                             <div class="site-settings d-block d-sm-flex">
 
@@ -87,7 +88,18 @@
                             </div>
                         </li> --}}
 
-                        <li class=""><a href="/login"><i class="fa fa-sign-in"></i></a>
+                        <li class="">
+                            @auth
+                                @if (auth()->user()->hasRole('superadmin'))
+                                    <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                @elseif (auth()->user()->hasRole('customer'))
+                                    <a href="{{ route('customer.dashboard') }}">Dashboard</a>
+                                @elseif(auth()->user()->hasRole('supplier'))
+                                    <a href="{{ route('supplier.dashboard') }}">Dashboard</a>
+                                @endif
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+                            @endauth
                             <div class="site-settings d-block d-sm-flex">
 
                                 <dl class="my-account">
@@ -114,8 +126,8 @@
                                 <div class="mini-cart-body">
                                     <div class="single-cart-item d-flex">
                                         <figure class="product-thumb">
-                                            <a href="#"><img class="img-fluid"
-                                                    src="bootstrap/img/product-1.jpg" alt="Products" /></a>
+                                            <a href="#"><img class="img-fluid" src="bootstrap/img/product-1.jpg"
+                                                    alt="Products" /></a>
                                         </figure>
 
                                         <div class="product-details">
@@ -130,8 +142,8 @@
                                     </div>
                                     <div class="single-cart-item d-flex">
                                         <figure class="product-thumb">
-                                            <a href="#"><img class="img-fluid"
-                                                    src="bootstrap/img/product-2.jpg" alt="Products" /></a>
+                                            <a href="#"><img class="img-fluid" src="bootstrap/img/product-2.jpg"
+                                                    alt="Products" /></a>
                                         </figure>
                                         <div class="product-details">
                                             <h2><a href="#">Yoga Companion Kit</a></h2>

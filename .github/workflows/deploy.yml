@@ -1,0 +1,79 @@
+name: Deploy NGYAN Application to Prod Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, ctype, xml, json, tokenizer # Recommended Laravel extensions
+          coverage: none
+
+      - name: Install Composer Dependencies
+        run: |
+          composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
+          composer dump-autoload
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install NPM Dependencies
+        run: npm ci --prefer-offline
+
+      - name: Build NPM Assets
+        run: npm run build --if-present
+
+      - name: Synchronize Files To Server
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env: 
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        with:
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.VPS_HOST }}
+          REMOTE_USER: ${{ secrets.VPS_USER }}
+          TARGET: "/var/www/laravel/"
+          ARGS: "-avz --delete --exclude='node_modules/' --exclude='.git/'"
+          SSH_ARGS: "-o StrictHostKeyChecking=no"
+      
+      - name: Create .env file on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+              cd /var/www/laravel
+              echo "${{ secrets.PROD_ENV }}" > .env
+              php artisan key:generate
+
+      - name: Run Remote Artisan Commands
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /var/www/laravel || exit 1
+            sudo chown -R www-data:www-data storage
+            sudo chmod -R 775 storage
+            php artisan migrate --force
+            php artisan optimize:clear
+            php artisan optimize
+            php artisan view:cache
+            php artisan event:cache
+            php artisan storage:link

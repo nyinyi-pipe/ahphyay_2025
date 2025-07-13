@@ -339,8 +339,8 @@ button:focus, button:active, button.btn:focus, button.btn:active {
 }
 
 .btn-login:hover {
-    background-color: #d82e2e;
-    border-color: #d82e2e;
+    background-color: #230d03;
+    border-color: #230d03;
     color: #fff;
 }
 
@@ -3986,7 +3986,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
     font-size: 2.2rem;
     line-height: 1.5;
     font-weight: 700;
-    color: #202020;
+    color: #230d03;
     font-family: "Droid Serif";
     margin-right: 50px;
     position: relative;
@@ -4067,12 +4067,12 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 }
 
 .single-input-item input:active, .single-input-item input:focus, .single-input-item textarea:active, .single-input-item textarea:focus {
-    border-color: #d82e2e;
+    border-color: #230d03;
     background-color: #fff;
 }
 
 .single-input-item .forget-pwd {
-    color: #d82e2e;
+    color: #230d03;
     font-size: 1.5rem;
     line-height: 1.5;
 }

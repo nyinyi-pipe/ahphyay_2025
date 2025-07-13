@@ -799,8 +799,8 @@ address strong, address b {
 
 #header-area .header-right-meta ul li a {
     display: block;
-    color: #929292;
-    font-size: 1.8rem;
+    color: #fff;
+    font-size: 13px;
     line-height: 1.5;
     line-height: 1;
     padding: 10px 0;

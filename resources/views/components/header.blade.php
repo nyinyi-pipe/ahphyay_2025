@@ -5,7 +5,7 @@
             <!-- Logo Area Start -->
             <div class="col-3 col-lg-1 col-xl-2 m-auto">
                 <a href="/" class="logo-area">
-                    <img src="{{ $logo->value ?? '' }}" style="filter: brightness(250%);" width="60" class=""
+                    <img src="{{ $logo ?? '' }}" style="filter: brightness(250%);" width="60" class=""
                         alt="Logo" class="img-fluid" />
                 </a>
             </div>

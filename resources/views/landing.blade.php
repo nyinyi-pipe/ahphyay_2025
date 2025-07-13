@@ -1,45 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ config('app.name', 'Ngyan') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="font-sans antialiased">
-    <div class="">
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                @auth
-                    <a href="{{ url('admin/dashboard') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                        in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-        
-    </div>
-</body>
-
-</html> --}}
-
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
@@ -74,14 +32,7 @@
 
     <!-- Modernizer JS -->
     <script src="bootstrap/js/vendor/modernizr-2.8.3.min.js"></script>
-
-    @vite(['resources/js/app.js'])
-
-
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
 </head>
 
 <body>
@@ -214,7 +165,7 @@
     <!--=== Jquery Migrate Min Js ===-->
     <script src="bootstrap/js/vendor/jquery-migrate-1.4.1.min.js"></script>
     <!--=== Popper Min Js ===-->
-    <script src="bootstrap/js/vendor/popper.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
     <!--=== Bootstrap Min Js ===-->
     <script src="bootstrap/js/vendor/bootstrap.min.js"></script>
     <!--=== Plugins Min Js ===-->

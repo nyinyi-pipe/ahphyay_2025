@@ -14,15 +14,17 @@ use Spatie\Permission\Models\Permission;
 class PermissionsTable extends DataTableComponent
 {
     protected $model = Permission::class;
+    public bool $columnSelect = false;
 
     public function configure(): void
     {
         $this->setPrimaryKey('id')
             ->setPaginationEnabled()
-            ->setDefaultSort('id','asc')
+            
             ->setPaginationVisibilityEnabled()
             ->setPerPageAccepted([10, 25, 50, 100])
             ->setDefaultPerPage(10)
+            ->setColumnSelectDisabled()
             ->setPaginationMethod('standard');
     }
 

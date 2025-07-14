@@ -13,16 +13,18 @@ use Spatie\Permission\Models\Role;
 class RolesTable extends DataTableComponent
 {
     protected $model = Role::class;
+    
 
     public function configure(): void
     {
         $this->setPrimaryKey('id')
             ->setPaginationEnabled()
-            ->setDefaultSort('id','asc')
             ->setPaginationVisibilityEnabled()
             ->setPerPageAccepted([10, 25, 50, 100])
             ->setDefaultPerPage(10)
+            ->setColumnSelectDisabled()
             ->setPaginationMethod('standard');
+            
     }
 
     public function columns(): array

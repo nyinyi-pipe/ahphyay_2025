@@ -1,6 +1,8 @@
 import './bootstrap';
 import 'iconify-icon';
-import '@alpinejs/persist'
+import '@alpinejs/persist';
+
+
 
 
 

@@ -21,16 +21,19 @@ class WebSettingController extends Controller
         $this->webSettingRepo = $webSettingRepo;
     }
 
-    public function settings(){
-        $users = User::get();
-        $roles = Role::orderBy('id')->get();
-        $permissions = Permission::get();
-        $faqs = Faq::orderBy('category_slug')->orderBy('order')->get();
-        return view('admin.settings.settings', compact('roles', 'permissions','users','faqs'));
+    public function settings()
+    {
+        $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
+        $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
+        $banner_1 = $this->webSettingRepo->getLandingAttributes()['banner_1'];
+        $banner_2 = $this->webSettingRepo->getLandingAttributes()['banner_2'];
+        $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
 
+        return view('admin.settings.settings', compact('logo','company_name','banner_1','banner_2','about_img'));
     }
 
-    public function landing(){
+    public function landing()
+    {
         $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
         $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
         $banner_1 = $this->webSettingRepo->getLandingAttributes()['banner_1'];
@@ -38,12 +41,19 @@ class WebSettingController extends Controller
         $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
 
 
-        return view('components.landing-resources',compact('logo','company_name','banner_1','banner_2','about_img'));
+        return view('components.landing-resources', compact('logo', 'company_name', 'banner_1', 'banner_2', 'about_img'));
     }
 
     public function settingsStore(Request $request)
     {
-        
+        request()->validate([
+            'logo' => 'nullable|image|max:2048',
+            'banner_1' => 'nullable|image|max:2048',
+            'banner_2' => 'nullable|image|max:2048',
+            'about_image' => 'nullable|image|max:2048',
+            'company_name' => 'nullable|string'
+        ]);
+
         $this->handleFileUpload($request, 'logo');
         $this->handleFileUpload($request, 'banner_1');
         $this->handleFileUpload($request, 'banner_2');
@@ -57,8 +67,24 @@ class WebSettingController extends Controller
     private function handleFileUpload($request, $field)
     {
         if ($request->hasFile($field)) {
+            $existing = SiteSettings::where('key', $field)->first();
+
+            if ($existing && $existing->value) {
+                $this->deleteOldFile($existing->value);
+            }
+
             $path = $request->file($field)->store('public/settings');
             $this->updateSetting($field, Storage::url($path), 'image');
+        }
+    }
+
+    private function deleteOldFile($fileUrl)
+    {
+        $filePath = str_replace('/storage/', '', $fileUrl);
+        $fullPath = "public/{$filePath}";
+
+        if (Storage::exists($fullPath)) {
+            Storage::delete($fullPath);
         }
     }
 
@@ -70,19 +96,21 @@ class WebSettingController extends Controller
         );
     }
 
-    public function about(){
+    public function about()
+    {
         $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
         $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
         $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
 
-        return view('components.about',compact('logo','company_name','about_img'));
+        return view('components.about', compact('logo', 'company_name', 'about_img'));
     }
 
-    public function contact(){
+    public function contact()
+    {
         $logo = $this->webSettingRepo->getLandingAttributes()['logo'];
         $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
 
-        return view('components.contact',compact('logo','company_name'));
+        return view('components.contact', compact('logo', 'company_name'));
     }
 
 
@@ -93,7 +121,8 @@ class WebSettingController extends Controller
         return view('admin.settings.settings', compact('faqs'));
     }
 
-    public function create(){
+    public function create()
+    {
         $faqs = Faq::orderBy('category_slug')->orderBy('order')->get();
         return view('admin.partials.create-faq', compact('faqs'));
     }
@@ -109,7 +138,7 @@ class WebSettingController extends Controller
         ]);
 
         $maxOrder = Faq::where('category_slug', $request->category_slug)
-                       ->max('order') ?? 0;
+            ->max('order') ?? 0;
 
         Faq::create([
             'category_slug' => $request->category_slug,
@@ -121,7 +150,7 @@ class WebSettingController extends Controller
         ]);
 
         return redirect()->route('admin.faqs.index')
-                         ->with('success', 'FAQ created successfully');
+            ->with('success', 'FAQ created successfully');
     }
 
     public function update(Request $request, Faq $faq)
@@ -136,22 +165,22 @@ class WebSettingController extends Controller
 
         $faq->update($request->all());
         return redirect()->route('admin.faqs.index')
-                         ->with('success', 'FAQ updated successfully');
+            ->with('success', 'FAQ updated successfully');
     }
 
     public function destroy(Faq $faq)
     {
         $faq->delete();
-        
+
         Faq::where('category_slug', $faq->category_slug)
             ->orderBy('order')
             ->get()
-            ->each(function($item, $index) {
+            ->each(function ($item, $index) {
                 $item->update(['order' => $index + 1]);
             });
-            
+
         return redirect()->route('admin.faqs.index')
-                         ->with('success', 'FAQ deleted successfully');
+            ->with('success', 'FAQ deleted successfully');
     }
 
     public function reorder(Request $request)
@@ -160,8 +189,7 @@ class WebSettingController extends Controller
         foreach ($request->order as $id) {
             Faq::where('id', $id)->update(['order' => $order++]);
         }
-        
+
         return response()->json(['success' => true]);
     }
-
 }

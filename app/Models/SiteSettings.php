@@ -11,8 +11,4 @@ class SiteSettings extends Model
 
     protected $fillable = ['key', 'value', 'type'];
 
-    public static function getValue($key, $default = null)
-    {
-        return static::where('key', $key)->value('value') ?? $default;
-    }
 }

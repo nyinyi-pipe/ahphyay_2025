@@ -13,14 +13,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     @livewireStyles
-
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="font-sans antialiased">
-    <div class="bg-custom-gray-100">
+    <div class="bg-custom-gray-100 w-[100vw] overflow-hidden">
 
         <div x-data="{ scrolled: false }" x-init="scrolled = window.scrollY > 0" @scroll.window="scrolled = window.scrollY > 0"
             :class="scrolled ? 'shadow-xl bg-custom-gray-100' : 'bg-custom-gray-100'"
@@ -39,15 +37,11 @@
                 @include('layouts.mobile-nav')
 
             </div>
-
-            <div class="flex-1 flex flex-col">
-                <!-- Optional mobile nav -->
-
-                <main class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
-                    @yield('content')
-                </main>
-            </div>
+            <main class="w-[100vw] overflow-auto">
+                @yield('content')
+            </main>
         </div>
+    </div>
     </div>
 
 

@@ -1,4 +1,4 @@
-<aside class="md:w-64 p-4 h-screen ">
+<aside class=" md:w-60 p-4 h-screen ">
 
     @php
         $currentRoute = request()->path();

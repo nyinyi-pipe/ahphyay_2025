@@ -1,3 +1,4 @@
+// FAQ Section
 document.addEventListener("DOMContentLoaded", function () {
     // Category filtering
     const categoryButtons = document.querySelectorAll(".category-btn");

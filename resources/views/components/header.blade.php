@@ -92,10 +92,8 @@
                             @auth
                                 @if (auth()->user()->hasRole('superadmin'))
                                     <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-                                @elseif (auth()->user()->hasRole('customer'))
+                                @else
                                     <a href="{{ route('customer.dashboard') }}">Dashboard</a>
-                                @elseif(auth()->user()->hasRole('supplier'))
-                                    <a href="{{ route('supplier.dashboard') }}">Dashboard</a>
                                 @endif
                             @else
                                 <a href="{{ route('login') }}">Login</a>
@@ -126,7 +124,7 @@
                                 <div class="mini-cart-body">
                                     <div class="single-cart-item d-flex">
                                         <figure class="product-thumb">
-                                            <a href="#"><img class="img-fluid" src="bootstrap/img/product-1.jpg"
+                                            <a href="#"><img class="img-fluid" src=""
                                                     alt="Products" /></a>
                                         </figure>
 
@@ -142,7 +140,7 @@
                                     </div>
                                     <div class="single-cart-item d-flex">
                                         <figure class="product-thumb">
-                                            <a href="#"><img class="img-fluid" src="bootstrap/img/product-2.jpg"
+                                            <a href="#"><img class="img-fluid" src=""
                                                     alt="Products" /></a>
                                         </figure>
                                         <div class="product-details">
@@ -157,8 +155,8 @@
                                     </div>
                                     <div class="single-cart-item d-flex">
                                         <figure class="product-thumb">
-                                            <a href="#"><img class="img-fluid"
-                                                    src="bootstrap/img/product-3.jpg" alt="Products" /></a>
+                                            <a href="#"><img class="img-fluid" src=""
+                                                    alt="Products" /></a>
                                         </figure>
                                         <div class="product-details">
                                             <h2><a href="#">Sprite Yoga Companion Kit</a></h2>

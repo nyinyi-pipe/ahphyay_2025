@@ -27,9 +27,10 @@ class WebSettingController extends Controller
         $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
         $banner_1 = $this->webSettingRepo->getLandingAttributes()['banner_1'];
         $banner_2 = $this->webSettingRepo->getLandingAttributes()['banner_2'];
+        $banner_3 = $this->webSettingRepo->getLandingAttributes()['banner_3'];
         $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
 
-        return view('admin.settings.settings', compact('logo','company_name','banner_1','banner_2','about_img'));
+        return view('admin.settings.settings', compact('logo','company_name','banner_1','banner_2','banner_3','about_img'));
     }
 
     public function landing()
@@ -38,25 +39,28 @@ class WebSettingController extends Controller
         $company_name = $this->webSettingRepo->getLandingAttributes()['company_name'];
         $banner_1 = $this->webSettingRepo->getLandingAttributes()['banner_1'];
         $banner_2 = $this->webSettingRepo->getLandingAttributes()['banner_2'];
+        $banner_3 = $this->webSettingRepo->getLandingAttributes()['banner_3'];
         $about_img = $this->webSettingRepo->getLandingAttributes()['about_img'];
 
 
-        return view('components.landing-resources', compact('logo', 'company_name', 'banner_1', 'banner_2', 'about_img'));
+        return view('components.landing-resources', compact('logo', 'company_name', 'banner_1', 'banner_2','banner_3', 'about_img'));
     }
 
     public function settingsStore(Request $request)
     {
         request()->validate([
-            'logo' => 'nullable|image|max:2048',
-            'banner_1' => 'nullable|image|max:2048',
-            'banner_2' => 'nullable|image|max:2048',
-            'about_image' => 'nullable|image|max:2048',
+            'logo' => 'nullable|image|max:25600',
+            'banner_1' => 'nullable|image|max:25600',
+            'banner_2' => 'nullable|image|max:25600',
+            'banner_3' => 'nullable|image|max:25600',
+            'about_image' => 'nullable|image|max:25600',
             'company_name' => 'nullable|string'
         ]);
 
         $this->handleFileUpload($request, 'logo');
         $this->handleFileUpload($request, 'banner_1');
         $this->handleFileUpload($request, 'banner_2');
+        $this->handleFileUpload($request, 'banner_3');
         $this->handleFileUpload($request, 'about_image');
 
         $this->updateSetting('company_name', $request->company_name);

@@ -30,7 +30,8 @@ class UsersTable extends DataTableComponent
             ->setPaginationVisibilityEnabled()
             ->setPerPageAccepted([10, 25, 50, 100])
             ->setDefaultPerPage(10)
-            ->setActionsInToolbarEnabled() 
+            ->setActionsInToolbarEnabled()
+            ->setColumnSelectDisabled()
             ->setPaginationMethod('standard');
     }
     

@@ -138,7 +138,7 @@
                                     <div>
                                         <label class="block text-gray-700 mb-2">Company Logo</label>
                                         <div class="flex items-center space-x-4">
-                                            <label for="current">Current Logo</label>
+
                                             <img id="logo-preview" src="{{ $logo ?? '' }}" alt="Current Logo"
                                                 class="h-24 w-auto border rounded">
 
@@ -172,7 +172,7 @@
                                         <label class="block text-gray-700 mb-2">Main Banner (1100×500)</label>
                                         <div class="mb-2">
 
-                                            <img src="{{ $banner_1 ?? '' }}" id="banner1-preview" alt="Current Banner"
+                                            <img id="banner_1-preview" src="{{ $banner_1 ?? '' }}" alt="Current Banner"
                                                 class="w-full h-auto border rounded">
 
                                         </div>
@@ -190,12 +190,30 @@
                                         <label class="block text-gray-700 mb-2">Secondary Banner (1100×500)</label>
                                         <div class="mb-2">
 
-                                            <img src="{{ $banner_2 ?? '' }}" alt="Current Banner" id="banner2-preview"
+                                            <img src="{{ $banner_2 ?? '' }}" alt="Current Banner" id="banner_2-preview"
                                                 class="w-full h-auto border rounded">
 
                                         </div>
                                         <input type="file" name="banner_2" id="banner2-input"
-                                            class="block w-full text-sm text-gray-500
+                                            class="file-upload-input block w-full text-sm text-gray-500
+                                        file:mr-4 file:py-2 file:px-4
+                                        file:rounded-md file:border-0
+                                        file:text-sm file:font-semibold
+                                        file:bg-blue-50 file:text-blue-700
+                                        hover:file:bg-blue-100">
+                                    </div>
+
+                                    <!-- Banner 3 -->
+                                    <div>
+                                        <label class="block text-gray-700 mb-2">Third Banner (1100×500)</label>
+                                        <div class="mb-2">
+
+                                            <img src="{{ $banner_3 ?? '' }}" alt="Current Banner" id="banner_3-preview"
+                                                class="w-full h-auto border rounded">
+
+                                        </div>
+                                        <input type="file" name="banner_3" id="banner3-input"
+                                            class="file-upload-input block w-full text-sm text-gray-500
                                         file:mr-4 file:py-2 file:px-4
                                         file:rounded-md file:border-0
                                         file:text-sm file:font-semibold
@@ -215,74 +233,20 @@
                                         <label class="block text-gray-700 mb-2">About Image (400x700)</label>
                                         <div class="mb-2">
 
-                                            <img src="{{ $about_img ?? '' }}" alt="Current About Image" id="about-preview"
-                                                class="w-full h-auto border rounded">
+                                            <img src="{{ $about_img ?? '' }}" alt="Current About Image"
+                                                id="about-preview" class="w-full h-auto border rounded">
 
                                         </div>
                                         <input type="file" name="about_image" id="about-input"
-                                            class="block w-full text-sm text-gray-500
+                                            class="file-upload-input block w-full text-sm text-gray-500
                                         file:mr-4 file:py-2 file:px-4
                                         file:rounded-md file:border-0
                                         file:text-sm file:font-semibold
                                         file:bg-blue-50 file:text-blue-700
                                         hover:file:bg-blue-100">
                                     </div>
-
-
                                 </div>
                             </div>
-
-                            {{-- <!-- FAQ Section -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <h3 class="text-xl font-semibold mb-4 border-b pb-2">FAQ Management</h3>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 mb-2">FAQ JSON Data</label>
-                                <div id="faq_editor" style="height: 300px;" class="border rounded-lg">
-                                    {{ \App\Models\SiteSettings::where('key', 'faq_content')->first()->value ?? '[]' }}
-                                </div>
-                                <textarea id="faq_content" name="faq_content" class="hidden"></textarea>
-                            </div>
-
-                            <button type="button" id="add_faq"
-                                class="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-200">
-                                <i class="fas fa-plus mr-2"></i>Add FAQ Item
-                            </button>
-                        </div> --}}
-
-                            {{-- <!-- Testimonials Section -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <h3 class="text-xl font-semibold mb-4 border-b pb-2">Testimonials</h3>
-
-                            <div class="mb-4">
-                                <label class="block text-gray-700 mb-2">Testimonials JSON Data</label>
-                                <div id="testimonials_editor" style="height: 300px;" class="border rounded-lg">
-                                    {{ \App\Models\SiteSettings::where('key', 'testimonials')->first()->value ?? '[]' }}
-                                </div>
-                                <textarea id="testimonials" name="testimonials" class="hidden"></textarea>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                @foreach (json_decode(\App\Models\SiteSettings::where('key', 'testimonials')->first()->value ?? '[]') as $testimonial)
-                                    <div class="border rounded-lg p-4">
-                                        <div class="flex items-center mb-2">
-                                            <div class="h-10 w-10 bg-gray-200 rounded-full overflow-hidden mr-3">
-                                                <img src="{{ $testimonial->avatar ?? '' }}"
-                                                    class="h-full w-full object-cover">
-                                            </div>
-                                            <div>
-                                                <h4 class="font-medium">{{ $testimonial->name ?? 'Anonymous' }}</h4>
-                                                <p class="text-sm text-gray-500">{{ $testimonial->position ?? '' }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <p class="text-gray-700 text-sm italic">"{{ $testimonial->comment ?? '' }}"
-                                        </p>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div> --}}
-
                             <!-- Submit Button -->
                             <div class="flex justify-end">
                                 <button type="submit"
@@ -311,89 +275,39 @@
 
 @section('script')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Setup for logo preview
-            const logoInput = document.getElementById('logo-input');
-            const logoPreview = document.getElementById('logo-preview');
+        $(function() {
 
-            logoInput.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
+            function attachPreview(fileInput, imgTarget) {
+                $(fileInput).on('change', function() {
+                    const file = this.files[0];
+                    if (!file) return;
+
                     const reader = new FileReader();
-
                     reader.onload = function(e) {
-                        logoPreview.src = e.target.result;
-                        logoPreview.classList.add('border-blue-400');
-                        setTimeout(() => logoPreview.classList.remove('border-blue-400'), 1000);
-                    }
+                        $(imgTarget)
+                            .attr('src', e.target.result) 
+                            .addClass('border-blue-400');
 
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-
-            // Setup for banner 1 preview
-            const banner1Input = document.getElementById('banner1-input');
-            const banner1Preview = document.getElementById('banner1-preview');
-
-            banner1Input.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        banner1Preview.src = e.target.result;
-                        banner1Preview.classList.add('border-blue-400');
-                        setTimeout(() => banner1Preview.classList.remove('border-blue-400'), 1000);
-                    }
-
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-
-            // Setup for banner 2 preview
-            const banner2Input = document.getElementById('banner2-input');
-            const banner2Preview = document.getElementById('banner2-preview');
-
-            banner2Input.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        banner2Preview.src = e.target.result;
-                        banner2Preview.classList.add('border-blue-400');
-                        setTimeout(() => banner2Preview.classList.remove('border-blue-400'), 1000);
-                    }
-
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-
-            // Setup for about image preview
-            const aboutInput = document.getElementById('about-input');
-            const aboutPreview = document.getElementById('about-preview');
-
-            aboutInput.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        aboutPreview.src = e.target.result;
-                        aboutPreview.classList.add('border-blue-400');
-                        setTimeout(() => aboutPreview.classList.remove('border-blue-400'), 1000);
-                    }
-
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-
-            // Add visual feedback when file inputs are used
-            const fileInputs = document.querySelectorAll('.file-upload-input');
-            fileInputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    const label = this.previousElementSibling;
-                    label.textContent = this.files[0].name;
-                    label.classList.add('text-green-600');
-                    label.classList.remove('text-gray-500');
+                        setTimeout(() => $(imgTarget).removeClass('border-blue-400'), 1000);
+                    };
+                    reader.readAsDataURL(file);
                 });
+            }
+
+            attachPreview('#logo-input', '#logo-preview');
+            attachPreview('#banner1-input', '#banner_1-preview');
+            attachPreview('#banner2-input', '#banner_2-preview');
+            attachPreview('#banner3-input', '#banner_3-preview');
+            attachPreview('#about-input', '#about-preview');
+
+            $('.file-upload-input').on('change', function() {
+                const name = this.files[0]?.name ?? 'Choose file';
+                $(this).siblings('div.mb-2').prev('label')
+                    .text(name)
+                    .removeClass('text-gray-500')
+                    .addClass('text-green-600');
             });
+
         });
     </script>
 @endsection

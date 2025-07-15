@@ -20,18 +20,18 @@
         href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" />
 
     <!--=== Bootstrap CSS ===-->
-    <link href="bootstrap/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/vendor/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/vendor/font-awesome.css">
     <!--=== Plugins CSS ===-->
-    <link href="bootstrap/css/plugins.css" rel="stylesheet">
+    <link href="/bootstrap/css/plugins.css" rel="stylesheet">
     <!--=== Main Style CSS ===-->
-    <link href="bootstrap/css/style.css" rel="stylesheet">
+    <link href="/bootstrap/css/style.css" rel="stylesheet">
 
-    <link href="bootstrap/css/custom.css" rel="stylesheet" href="">
+    <link href="/bootstrap/css/custom.css" rel="stylesheet" href="">
 
     <!-- Modernizer JS -->
-    <script src="bootstrap/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="/bootstrap/js/vendor/modernizr-2.8.3.min.js"></script>
     
 </head>
 
@@ -161,19 +161,19 @@
 
     <!--=======================Javascript============================-->
     <!--=== Jquery Min Js ===-->
-    <script src="bootstrap/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="/bootstrap/js/vendor/jquery-3.3.1.min.js"></script>
     <!--=== Jquery Migrate Min Js ===-->
-    <script src="bootstrap/js/vendor/jquery-migrate-1.4.1.min.js"></script>
+    <script src="/bootstrap/js/vendor/jquery-migrate-1.4.1.min.js"></script>
     <!--=== Popper Min Js ===-->
-    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
     <!--=== Bootstrap Min Js ===-->
-    <script src="bootstrap/js/vendor/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/vendor/bootstrap.min.js"></script>
     <!--=== Plugins Min Js ===-->
-    <script src="bootstrap/js/plugins.js"></script>
+    <script src="/bootstrap/js/plugins.js"></script>
 
     <!--=== Active Js ===-->
-    <script src="bootstrap/js/active.js"></script>
-    <script src="bootstrap/js/custom.js"></script>
+    <script src="/bootstrap/js/active.js"></script>
+    <script src="/bootstrap/js/custom.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

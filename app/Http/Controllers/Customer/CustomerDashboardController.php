@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class CustomerDashboardController extends Controller
 {
     public function dashboard(){
-        dd("hit cus");
+        return view('customer.dashboard');
     }
 }

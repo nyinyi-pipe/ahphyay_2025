@@ -203,7 +203,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
 }
 
 .section-title p {
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Droid Serif";
     font-size: 1.5rem;
     line-height: 1.5;
@@ -277,7 +277,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
 }
 
 .btn-long-arrow:after {
-    background: url(../img/arrow.png) left center no-repeat;
+    /* background: url() left center no-repeat; */
     content: '';
     float: right;
     margin-left: 20px;
@@ -479,7 +479,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
     font-family: "Droid Serif";
     color: #f4f5f7;
     font-size: 1.5rem;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .breadcrumb li a:hover, .breadcrumb li a:active, .breadcrumb li a:focus, .breadcrumb li a.active {
@@ -501,7 +501,7 @@ button:focus, button:active, button.btn:focus, button.btn:active {
 
 .sidebar-list li a {
     color: #202020;
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Droid Serif";
     -webkit-transition: all 0.1s ease-out;
     -moz-transition: all 0.1s ease-out;
@@ -658,7 +658,7 @@ blockquote, .blockquote {
     color: #202020;
     font-family: "Droid Serif";
     font-weight: 700;
-    font-style: italic;
+    /* font-style: italic; */
     padding: 100px 30px 30px;
     margin-bottom: 15px;
     position: relative;
@@ -1196,7 +1196,7 @@ address strong, address b {
     color: #727272;
     font-size: 1.3rem;
     font-weight: 700;
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Droid Serif";
     letter-spacing: 0.8px;
     padding: 6px 20px;
@@ -1286,7 +1286,7 @@ address strong, address b {
     font-weight: 400;
     font-size: 1.3rem;
     font-family: "Droid Serif";
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 700;
     text-transform: capitalize;
     line-height: 30px;
@@ -1749,7 +1749,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 }
 
 #banner-area #banner-carousel .single-carousel-wrap .banner-caption p {
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Droid Serif";
     color: #000;
 }
@@ -1923,11 +1923,12 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 }
 
 .about-content-wrap .about-text {
-    font-style: italic;
+    /* font-style: italic; */
     padding-left: 10px;
     font-size: 1.5rem;
     line-height: 2.5rem;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: 'Montserrat';
     position: relative;
 }
 
@@ -2180,7 +2181,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 
 .products-wrapper .single-product-item .product-details .products-desc {
     display: none;
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 1.5rem;
     line-height: 1.5;
     font-family: "Droid Serif";
@@ -2254,7 +2255,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
     background-color: #202020;
     font-size: 1.2rem;
     line-height: 1.5;
-    font-style: italic;
+    /* font-style: italic; */
     color: #fff;
     padding: 10px 25px;
     text-transform: uppercase;
@@ -2694,7 +2695,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 }
 
 .testimonial-content-wrap .single-testimonial-item {
-    font-style: italic;
+    /* font-style: italic; */
     color: #d2d2d2;
     font-family: "Droid Serif";
     line-height: 30px;
@@ -2737,7 +2738,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 .newsletter-form-wrap input {
     border: none;
     border-bottom: 2px solid #727272;
-    font-style: italic;
+    /* font-style: italic; */
     padding: 15px 20px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -2892,7 +2893,7 @@ Muted Clay	#E5DFD5	style="background-color: #E5DFD5" */
 
 #sale-products-area .sale-product-wrapper .single-sale-product .sale-product-details p {
     font-family: "Droid Serif";
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 #sale-products-area .sale-product-wrapper .single-sale-product .sale-product-details .btn-add-to-cart {
@@ -4739,7 +4740,7 @@ fieldset legend {
     font-size: 1.1rem;
     line-height: 1.5;
     font-weight: 700;
-    font-style: italic;
+    /* font-style: italic; */
     display: block;
     padding-bottom: 15px;
     margin-bottom: 28px;
@@ -4772,7 +4773,7 @@ fieldset legend {
 
 .single-blog-wrap .blog-details p {
     font-family: "Droid Serif";
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 /*== Blog Page Content End ==*/
@@ -5251,7 +5252,7 @@ fieldset legend {
 }
 
 .single-callto-action {
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Droid Serif";
     border-right: 1px dashed #d2d2d2;
     padding: 10px 0;
@@ -5305,7 +5306,7 @@ fieldset legend {
 
 .follow-content-wrap {
     font-family: "Droid Serif";
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 1.5rem;
     line-height: 1.5;
     color: #f4f5f7;
@@ -5394,7 +5395,7 @@ fieldset legend {
 }
 
 .copyright-area .copyright-text {
-    font-style: italic;
+    /* font-style: italic; */
     font-family: "Droid Serif";
 }
 

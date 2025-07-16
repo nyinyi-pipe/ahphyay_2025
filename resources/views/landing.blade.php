@@ -48,7 +48,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><img src="bootstrap/img/cancel.png" alt="Close"
+                    <span aria-hidden="true"><img src="" alt="Close"
                             class="img-fluid" /></span>
                 </button>
                 <div class="modal-body">
@@ -60,22 +60,22 @@
                                     <div class="product-thumb-carousel owl-carousel">
                                         <div class="single-thumb-item">
                                             <a href="single-product.html"><img class="img-fluid"
-                                                    src="bootstrap/img/single-pro-thumb.jpg" alt="Product" /></a>
+                                                    src="" alt="Product" /></a>
                                         </div>
 
                                         <div class="single-thumb-item">
                                             <a href="single-product.html"><img class="img-fluid"
-                                                    src="bootstrap/img/single-pro-thumb-2.jpg" alt="Product" /></a>
+                                                    src="" alt="Product" /></a>
                                         </div>
 
                                         <div class="single-thumb-item">
                                             <a href="single-product.html"><img class="img-fluid"
-                                                    src="bootstrap/img/single-pro-thumb-3.jpg" alt="Product" /></a>
+                                                    src="" alt="Product" /></a>
                                         </div>
 
                                         <div class="single-thumb-item">
                                             <a href="single-product.html"><img class="img-fluid"
-                                                    src="bootstrap/img/single-pro-thumb-4.jpg" alt="Product" /></a>
+                                                    src="" alt="Product" /></a>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
     <script src="/bootstrap/js/custom.js"></script>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/bootstrap/js/vendor/bootstrap.bundle.min.js"></script>
     @script('script')
 
 

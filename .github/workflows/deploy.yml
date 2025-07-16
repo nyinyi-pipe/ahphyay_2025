@@ -69,6 +69,7 @@ jobs:
           port: 22
           script: |
             cd /var/www/laravel || exit 1
+            sudo chmod -R 775 storage bootstrap/cache
             sudo chown -R www-data:www-data storage
             sudo chmod -R 775 storage
             php artisan migrate --force

@@ -17,7 +17,7 @@
                         <div class="single-carousel-wrap slide-item-1" style="background-image: url({{ $banner_1 ?? '' }});">
 
                             <div class="banner-caption text-center text-lg-left">
-                                <h4 style="color: #5e2207;">Ngyan Store</h4>
+                                <h4 style="color: #5e2207;">{{ $company_name ?? '' }} Store</h4>
                                 <h3 class="h3-banner">Lorem ipsum dolor </h3>
                                 <p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
                                 <a href="#" class="btn-long-arrow">Shop Now</a>
@@ -28,7 +28,17 @@
                         <!-- Banner Single Carousel Start -->
                         <div class="single-carousel-wrap slide-item-2" style="background-image: url({{ $banner_2 ?? '' }});">
                             <div class="banner-caption text-center text-lg-left">
-                                <h4 style="color:#5e2207;">Ngyan Store</h4>
+                                <h4 style="color:#5e2207;">{{ $company_name ?? '' }} Store</h4>
+                                <h3 class="h3-banner">Lorem ipsum dolor</h3>
+                                <p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                                <a href="#" class="btn-long-arrow">Shop Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Banner Single Carousel Start -->
+                        <div class="single-carousel-wrap slide-item-3" style="background-image: url({{ $banner_3 ?? '' }});">
+                            <div class="banner-caption text-center text-lg-left">
+                                <h4 style="color:#5e2207;">{{ $company_name ?? '' }} Store</h4>
                                 <h3 class="h3-banner">Lorem ipsum dolor</h3>
                                 <p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
                                 <a href="#" class="btn-long-arrow">Shop Now</a>
@@ -252,8 +262,6 @@
         </div>
     </section>
     <!--== About Us Area End ==-->
-
-
 
     <!--== FAQ Area Start ==-->
     <div class="faq-container">

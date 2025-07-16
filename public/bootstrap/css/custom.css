@@ -242,7 +242,7 @@
     padding: 20px 25px !important;
     color: #6c757d;
     line-height: 1.7;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 600;
     font-family: "Droid Serif";
 
